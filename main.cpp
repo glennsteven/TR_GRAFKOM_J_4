@@ -4,16 +4,11 @@
 void init(void);
 void tampil(void);
 
-void poni(void);
-void aspal(void);
-void rumput(void);
-
 void keyboard(unsigned char, int, int);
 void ukuran (int, int);
 
-
 int is_depth;
-int x1=5,a=-10,z1=10,z2=10;
+float x1=10.0;
 int main(int argc, char **argv){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
@@ -36,21 +31,90 @@ void init(void){
     glLineWidth(6.0f);
 }
 void lambangSegitiga(){
-
-    /*glBegin(GL_POLYGON);//depan
+    //Belakang Kiri
+    glBegin(GL_POLYGON);
     glColor3ub(255,0,0);
-    glVertex3f(-105.0,50.0,5.0);
-    glVertex3f(105.0,50.0,5.0);
-    glVertex3f(105.0,70.0,5.0);
-    glVertex3f(-105.0,70.0,5.0);
-    glEnd();*/
+    glVertex3f(-75.0, 40.0, 5.0);
+    glVertex3f(-55.0, 40.0, 5.0);
+    glVertex3f(0.0, 120.0, 5.0);
+    glVertex3f(0.0, 150.0, 5.0);
+    glEnd();
 
+    //Penutup Bawah Kiri
+    glBegin(GL_POLYGON);
+    glColor3ub(0,255,0);
+    glVertex3f(-75.0, 40.0, 5.0+x1);
+    glVertex3f(-55.0, 40.0, 5.0+x1);
+    glVertex3f(-55.0, 40.0, 5.0);
+    glVertex3f(-75, 40.0, 5.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(-75.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0);
+    glVertex3f(-75.0, 40.0, 5.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(-55.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0);
+    glVertex3f(-55.0, 40.0, 5.0);
+    glEnd();
+
+    //Depan Kiri
     glBegin(GL_POLYGON);//depan
     glColor3ub(255,0,0);
-    glVertex3f(-65.0,30.0,5.0);
-    glVertex3f(-45.0,30.0,5.0);
-    glVertex3f(0.0,90.0,5.0);
-    glVertex3f(0.0,110.0,5.0);
+    glVertex3f(-75.0, 40.0, 5.0+x1);
+    glVertex3f(-55.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0+x1);
+    glEnd();
+
+    //Belakang Kanan
+    glBegin(GL_POLYGON);
+    glColor3ub(255,0,0);
+    glVertex3f(75.0, 40.0, 5.0);
+    glVertex3f(55.0, 40.0, 5.0);
+    glVertex3f(0.0, 120.0, 5.0);
+    glVertex3f(0.0, 150.0, 5.0);
+    glEnd();
+
+    //Penutup Bawah Kanan
+    glBegin(GL_POLYGON);
+    glColor3ub(0,255,0);
+    glVertex3f(75.0, 40.0, 5.0+x1);
+    glVertex3f(55.0, 40.0, 5.0+x1);
+    glVertex3f(55.0, 40.0, 5.0);
+    glVertex3f(75, 40.0, 5.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(75.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0);
+    glVertex3f(75.0, 40.0, 5.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(55.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0);
+    glVertex3f(55.0, 40.0, 5.0);
+    glEnd();
+
+    //Depan Kanan
+    glBegin(GL_POLYGON);//depan
+    glColor3ub(255,0,0);
+    glVertex3f(75.0, 40.0, 5.0+x1);
+    glVertex3f(55.0, 40.0, 5.0+x1);
+    glVertex3f(0.0, 120.0, 5.0+x1);
+    glVertex3f(0.0, 150.0, 5.0+x1);
     glEnd();
 }
 void poni(void){
