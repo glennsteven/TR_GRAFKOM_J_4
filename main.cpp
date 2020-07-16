@@ -17,9 +17,9 @@ int x1=5,a=-10,z1=10,z2=10;
 int main(int argc, char **argv){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutInitWindowSize(800,600);
+    glutInitWindowSize(950,650);
     glutInitWindowPosition(250,80);
-    glutCreateWindow("Yohan's Banjarnahor - 672018356");
+    glutCreateWindow("Kelompok 4");
     init();
     glutDisplayFunc(tampil);
     glutKeyboardFunc(keyboard);
@@ -34,6 +34,24 @@ void init(void){
     glMatrixMode(GL_MODELVIEW);
     glPointSize(9.0);
     glLineWidth(6.0f);
+}
+void lambangSegitiga(){
+
+    /*glBegin(GL_POLYGON);//depan
+    glColor3ub(255,0,0);
+    glVertex3f(-105.0,50.0,5.0);
+    glVertex3f(105.0,50.0,5.0);
+    glVertex3f(105.0,70.0,5.0);
+    glVertex3f(-105.0,70.0,5.0);
+    glEnd();*/
+
+    glBegin(GL_POLYGON);//depan
+    glColor3ub(255,0,0);
+    glVertex3f(-65.0,30.0,5.0);
+    glVertex3f(-45.0,30.0,5.0);
+    glVertex3f(0.0,90.0,5.0);
+    glVertex3f(0.0,110.0,5.0);
+    glEnd();
 }
 void poni(void){
     //poni bangunan kiri
@@ -87,7 +105,7 @@ void poni(void){
     glEnd();
 
     glBegin(GL_POLYGON);//depan
-    glColor3ub(230, 230, 230);
+    glColor3ub(255,0,0);
     glVertex3f(-105.0,50.0,5.0);
     glVertex3f(105.0,50.0,5.0);
     glVertex3f(105.0,70.0,5.0);
@@ -163,7 +181,7 @@ void aspal(void){
 
     //aspal belakang
     glBegin(GL_POLYGON);
-    glColor3ub(191, 191, 191);
+    glColor3ub(155, 180, 191);
     glVertex3f(70.0,0.0,400.0);
     glVertex3f(620.0,0.0,0.0);
     glVertex3f(350.0,0.0,-450.0);
@@ -174,6 +192,140 @@ void aspal(void){
 }
 void rumput(void){
     //rumput segi 6 belum, ini bagian terakhir
+}
+void gerbang(){
+    //Sebelah kiri
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 0.0, 400.0);
+    glVertex3f(-45.0, 0.0, 400.0);
+    glVertex3f(-45.0, 30.0, 400.0);
+    glVertex3f(-70.0, 15.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 0.0, 420.0);
+    glVertex3f(-45.0, 0.0, 420.0);
+    glVertex3f(-45.0, 30.0, 420.0);
+    glVertex3f(-70.0, 15.0, 420.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 0.0, 420.0);
+    glVertex3f(-70.0, 40.0, 420.0);
+    glVertex3f(-70.0, 40.0, 400.0);
+    glVertex3f(-70.0, 0.0, 400.0);
+    glEnd();
+    //Sebelah kiri
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-45.0, 0.0, 420.0);
+    glVertex3f(-45.0, 30.0, 420.0);
+    glVertex3f(-45.0, 30.0, 400.0);
+    glVertex3f(-45.0, 0.0, 400.0);
+    glEnd();
+
+    //Gerbang Segitiga kiri
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 15.0, 400.0);
+    glVertex3f(0.0, 55.0, 400.0);
+    glVertex3f(0.0, 80.0, 400.0);
+    glVertex3f(-70.0, 40.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 15.0, 420.0);
+    glVertex3f(0.0, 55.0, 420.0);
+    glVertex3f(0.0, 80.0, 420.0);
+    glVertex3f(-70.0, 40.0, 420.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-70.0, 40.0, 420.0);
+    glVertex3f(0.0, 80.0, 420.0);
+    glVertex3f(0.0, 80.0, 400.0);
+    glVertex3f(-70.0, 40.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(-45.0, 30.0, 420.0);
+    glVertex3f(0.0, 55.0, 420.0);
+    glVertex3f(0.0, 55.0, 400.0);
+    glVertex3f(-45.0, 30.0, 400.0);
+    glEnd();
+
+    //Gerbang Segitiga Kanan
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 15.0, 400.0);
+    glVertex3f(0.0, 55.0, 400.0);
+    glVertex3f(0.0, 80.0, 400.0);
+    glVertex3f(70.0, 40.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 15.0, 420.0);
+    glVertex3f(0.0, 55.0, 420.0);
+    glVertex3f(0.0, 80.0, 420.0);
+    glVertex3f(70.0, 40.0, 420.0);
+    glEnd();
+
+     glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(45.0, 30.0, 420.0);
+    glVertex3f(0.0, 55.0, 420.0);
+    glVertex3f(0.0, 55.0, 400.0);
+    glVertex3f(45.0, 30.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 40.0, 420.0);
+    glVertex3f(0.0, 80.0, 420.0);
+    glVertex3f(0.0, 80.0, 400.0);
+    glVertex3f(70.0, 40.0, 400.0);
+    glEnd();
+
+
+    //Sebelah kanan
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 0.0, 400.0);
+    glVertex3f(45.0, 0.0, 400.0);
+    glVertex3f(45.0, 30.0, 400.0);
+    glVertex3f(70.0, 15.0, 400.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 0.0, 420.0);
+    glVertex3f(45.0, 0.0, 420.0);
+    glVertex3f(45.0, 30.0, 420.0);
+    glVertex3f(70.0, 15.0, 420.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(70.0, 0.0, 420.0);
+    glVertex3f(70.0, 40.0, 420.0);
+    glVertex3f(70.0, 40.0, 400.0);
+    glVertex3f(70.0, 0.0, 400.0);
+    glEnd();
+    //Sebelah Kanan
+    glBegin(GL_POLYGON);
+    glColor3ub(153, 102, 51);
+    glVertex3f(45.0, 0.0, 420.0);
+    glVertex3f(45.0, 30.0, 420.0);
+    glVertex3f(45.0, 30.0, 400.0);
+    glVertex3f(45.0, 0.0, 400.0);
+    glEnd();
 }
 void tampil(void){
     if (is_depth)
@@ -392,6 +544,8 @@ void tampil(void){
     rumput();
     aspal();
     poni();
+    gerbang();
+    lambangSegitiga();
     glPopMatrix();
     glutSwapBuffers();
 }
