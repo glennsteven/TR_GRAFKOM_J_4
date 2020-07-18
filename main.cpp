@@ -4,27 +4,39 @@
 
 void init(void);
 void tampil(void);
-
 void keyboard(unsigned char, int, int);
 void ukuran (int, int);
+void mouse (int button, int state, int x, int y);
+void mouseMotion(int x, int y);
 
+float xrot = 0.0;
+float yrot = 0.0;
+float zrot = 0.0;
+float xdiff = 0.0;
+float ydiff = 0.0;
+bool mouseDown = false;
 int is_depth;
 float x1=10.0;
 int main(int argc, char **argv){
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
+    glutInitDisplayMode(GLUT_DOUBLE);
     glutInitWindowSize(950,650);
     glutInitWindowPosition(250,80);
     glutCreateWindow("Kelompok 4");
     init();
     glutDisplayFunc(tampil);
+    glutMotionFunc(mouseMotion);
     glutKeyboardFunc(keyboard);
     glutReshapeFunc(ukuran);
+    glutMouseFunc(mouse);
     glutMainLoop();
     return 0;
 }
 void init(void){
     glClearColor(0.0,0.0,0.0,0.0);
+    glDepthFunc(GL_LEQUAL);
+   glShadeModel(GL_SMOOTH);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glEnable(GL_DEPTH_TEST);
     is_depth=1;
     glMatrixMode(GL_MODELVIEW);
@@ -945,12 +957,17 @@ void gerbang(){
     glVertex3f(-65.0, 22.0, 420.1);
     glEnd();
 }
+void coba(){
+	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+    gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	glRotatef(xrot,1,0,0);
+	glRotatef(yrot,0,1,0);
+}
 void tampil(void){
-    if (is_depth)
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    else
-        glClear(GL_COLOR_BUFFER_BIT);
+
     glPushMatrix();
+    coba();
+    glScalef(1.5, 1.5, 1.0);
 
     //bangunan besar tengah
     glBegin(GL_QUADS);//depan
@@ -1168,53 +1185,89 @@ void tampil(void){
     lambangSegitiga();
     papan_nama();
     uksw();
+    glFlush();
     glPopMatrix();
     glutSwapBuffers();
 }
 
+void mouse(int button, int state, int x, int y){
+    if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
+        mouseDown = true;
+        xdiff = x-yrot;
+        ydiff = -y + xrot;
+    }else{
+        mouseDown = false;
+    }
+    glutPostRedisplay();
+}
+
+void mouseMotion(int x, int y){
+    if(mouseDown){
+        yrot = x - xdiff;
+        xrot = y + ydiff;
+        glutPostRedisplay();
+    }
+}
 void keyboard (unsigned char key, int x, int y){
     switch (key)
     {
-    case 'w':
-    case 'W':
-        glTranslatef(0.0,0.0,3.0);
-        break;
-    case 'd':
-    case 'D':
-        glTranslatef(3.0,0.0,0.0);
-        break;
-    case 's':
-    case 'S':
-        glTranslatef(0.0,0.0,-3.0);
-        break;
+        //GESER KE KIRI
     case 'a':
+        glTranslatef(-3.0, 0.0, 0.0);
+        break;
     case 'A':
-        glTranslatef(-3.0,0.0,0.0);
+        glTranslatef(-1.0, 0.0, 0.0);
         break;
-    case '7':
-        glTranslatef(0.0,3.0,0.0);
+        //GESER KE KANAN
+    case 'd':
+        glTranslatef(3.0, 0.0, 0.0);
         break;
-    case '9':
-        glTranslatef(0.0,-3.0,0.0);
+    case 'D':
+        glTranslatef(2.0, 0.0, 0.0);
         break;
-    case '2':
-        glRotatef(2.0,1.0,0.0,0.0);
+        //GESER KE ATAS
+    case 'w':
+        glTranslatef(0.0, 1.5, 0.0);
         break;
-    case '8':
-        glRotatef(-2.0,1.0,0.0,0.0);
+    case 'W':
+        glTranslatef(0.0, 5.0f, 0.0);
         break;
-    case '6':
-        glRotatef(2.0,0.0,1.0,0.0);
+        //GERAL KE BAWAH
+    case 's':
+        glTranslatef(0.0, -1.5f, 0.0);
         break;
+    case 'S':
+        glTranslatef(0.0, -5.0f, 0.0);
+        break;
+        //GERAK KE DEPAN
+    case 'z':
+        glTranslatef(0.0, 0.0, 3.0f);
+        break;
+    case 'Z':
+        glTranslatef(0.0, 0.0, 5.5);
+        break;
+        //GERAK KE BELAKANG
+    case 'x':
+        glTranslatef(0.0, 0.0, -1.5f);
+        break;
+    case 'X':
+        glTranslatef(0.0, 0.0, -3.5f);
+        break;
+        //ROTATE KE KIRI
     case '4':
-        glRotatef(-2.0,0.0,1.0,0.0);
+        glRotatef(1.0, 0.0, -5.0, 0.0);
         break;
-    case '1':
-        glRotatef(2.0,0.0,0.0,1.0);
+    case 'K':
+        glRotatef(5.0, 0.0, -5.0, 0.0);
         break;
-    case '3':
-        glRotatef(-2.0,0.0,0.0,1.0);
+        //ROTATE KE KANAN
+    case '6':
+        glRotatef(1.0, 0.0, 5.0, 0.0);
         break;
+    case '/':
+        glRotatef(2.0, 0.0, 5.0, 0.0);
+        break;
+
     case '5':
         if(is_depth){
             is_depth=0;
@@ -1225,16 +1278,46 @@ void keyboard (unsigned char key, int x, int y){
             glEnable(GL_DEPTH_TEST);
         }
         break;
+    	//rotate ke samping kanan
+		case '9':
+			glRotatef(2.0, 0.0, 0.0, -5.0);
+			break;
+		case ',':
+			glRotatef(5.0, 0.0, 0.0, -5.0);
+			break;
+			//rotate ke samping kiri
+		case '7':
+			glRotatef(1.0, 0.0, 0.0, 5.0);
+			break;
+		case 'i':
+			glRotatef(5.0, 0.0, 0.0, 5.0);
+			break;
+			//rotate ke atas
+		case '8':
+			glRotatef(1.0, -5.0, 0.0, 0.0);
+			break;
+		case 'u':
+			glRotatef(5.0, -5.0, 0.0, 0.0);
+			break;
+			//rotate ke bawah
+		case '2':
+			glRotatef(1.0, 5.0, 0.0, 0.0);
+			break;
+		case 'l':
+			glRotatef(5.0, 5.0, 0.0, 0.0);
+			break;
     }
     tampil();
 }
 
-void ukuran(int lebar,int tinggi)
+void ukuran(GLsizei width, GLsizei height)
 {
-    if (tinggi==0)tinggi=1;
+    if (height == 0) height = 1;
+    GLfloat aspect = (GLfloat)width / (GLfloat)height;
+    glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(100.0, lebar/tinggi,5.0,900.0);
+    gluPerspective(100.0, aspect,5.0,900.0);
     glTranslatef(0.0,-100.0,-590.0);
     glMatrixMode(GL_MODELVIEW);
 }
