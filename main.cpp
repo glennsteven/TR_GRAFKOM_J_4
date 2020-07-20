@@ -963,6 +963,67 @@ void coba(){
 	glRotatef(xrot,1,0,0);
 	glRotatef(yrot,0,1,0);
 }
+void jendelakutil(){
+    int y = 30;
+    float a = 0.1;
+    for (int i = 0; i<7; i++){
+        glBegin(GL_QUADS);
+        glColor3ub(0,255,255);
+        if (i==0){
+           glVertex3f(-100.0, 255.0, 6.0);
+           glVertex3f(-100.0, 230.0, 6.0);
+           glVertex3f(-80.0, 230.0, 6.0);
+           glVertex3f(-80.0, 255.0, 6.0);
+        }else{
+           glVertex3f(-100.0+y-a, 255.0, 6.0);
+           glVertex3f(-100.0+y-a, 230.0, 6.0);
+           glVertex3f(-80.0+y-a, 230.0, 6.0);
+           glVertex3f(-80.0+y-a, 255.0, 6.0);
+           y+=30;
+           a-=0.1;
+        }
+    }
+    glEnd();
+}
+void sekatkaca(){
+    int y = 30;
+    float a = 0.1;
+    for (int i = 0; i<6; i++){
+        glBegin(GL_QUADS);
+        glColor3ub(128,128,128);
+        if (i==0){
+           glVertex3f(-80.0, 255.0, 6.0);
+           glVertex3f(-80.0, 230.0, 6.0);
+           glVertex3f(-70.0, 230.0, 6.0);
+           glVertex3f(-70.0, 255.0, 6.0);
+        }else{
+           glVertex3f(-80.0+y-a, 255.0, 6.0);
+           glVertex3f(-80.0+y-a, 230.0, 6.0);
+           glVertex3f(-70.0+y-a, 230.0, 6.0);
+           glVertex3f(-70.0+y-a, 255.0, 6.0);
+           y+=30;
+           a-=0.1;
+        }
+    }
+    glEnd();
+
+    //PENUTUP BIAR GK MASUK ANGIN
+    glBegin(GL_POLYGON);
+    glColor3ub(128,128,128);
+    glVertex3f(-100.0, 255.0, -9.9);
+    glVertex3f(-100.0, 230.0, -9.9);
+    glVertex3f(-100.0, 230.0, 6.0);
+    glVertex3f(-100.0, 255.0, 6.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(128,128,128);
+    glVertex3f(100.0, 255.0, -9.9);
+    glVertex3f(100.0, 230.0, -9.9);
+    glVertex3f(100.0, 230.0, 6.0);
+    glVertex3f(100.0, 255.0, 6.0);
+    glEnd();
+}
 void tampil(void){
 
     glPushMatrix();
@@ -976,6 +1037,104 @@ void tampil(void){
     glVertex3f(120.0,0.0,-10.0);
     glVertex3f(120.0,280.0,-10.0);
     glVertex3f(-120.0,280.0,-10.0);
+    glEnd();
+
+    //KUTIL BANGUNAN BAGIAN ATAS
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 128,0);
+    glVertex3f(-100.0, 270.0, -9.9);
+    glVertex3f(-100.0, 255.0, -9.9);
+    glVertex3f(100.0, 255.0, -9.9);
+    glVertex3f(100.0, 270.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 128,0);
+    glVertex3f(-100.0, 270.0, -9.9);
+    glVertex3f(-100.0, 270.0, 0.0);
+    glVertex3f(100.0, 270.0, 0.0);
+    glVertex3f(100.0, 270.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(-100.0, 270.0, 0.0);
+    glVertex3f(-100.0, 255.0, 6.0);
+    glVertex3f(100.0, 255.0, 6.0);
+    glVertex3f(100.0, 270.0, 0.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,0,0);
+    glVertex3f(-100.0, 255.0, -9.9);
+    glVertex3f(-100.0, 255.0, 6.0);
+    glVertex3f(100.0, 255.0, 6.0);
+    glVertex3f(100.0, 255.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,255,0);
+    glVertex3f(-100.0, 270.0, -9.9);
+    glVertex3f(-100.0, 255.0, -9.9);
+    glVertex3f(-100.0, 255.0, 6.0);
+    glVertex3f(-100.0, 270.0, 0.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,255,0);
+    glVertex3f(100.0, 270.0, -9.9);
+    glVertex3f(100.0, 255.0, -9.9);
+    glVertex3f(100.0, 255.0, 6.0);
+    glVertex3f(100.0, 270.0, 0.0);
+    glEnd();
+
+    //KUTIL BANGUNAN BAGIAN BAWAH
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 128,0);
+    glVertex3f(-100.0, 230.0, -9.9);
+    glVertex3f(-100.0, 215.0, -9.9);
+    glVertex3f(100.0, 215.0, -9.9);
+    glVertex3f(100.0, 230.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 128,0);
+    glVertex3f(-100.0, 215.0, -9.9);
+    glVertex3f(-100.0, 215.0, 0.0);
+    glVertex3f(100.0, 215.0, 0.0);
+    glVertex3f(100.0, 215.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,0,255);
+    glVertex3f(-100.0, 230.0, 6.0);
+    glVertex3f(-100.0, 215.0, 0.0);
+    glVertex3f(100.0, 215.0, 0.0);
+    glVertex3f(100.0, 230.0, 6.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,0,150);
+    glVertex3f(-100.0, 230.0, -9.9);
+    glVertex3f(-100.0, 230.0, 6.0);
+    glVertex3f(100.0, 230.0, 6.0);
+    glVertex3f(100.0, 230.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,255,0);
+    glVertex3f(-100.0, 230.0, -9.9);
+    glVertex3f(-100.0, 215.0, -9.9);
+    glVertex3f(-100.0, 215.0, 0.0);
+    glVertex3f(-100.0, 230.0, 6.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(255,255,0);
+    glVertex3f(100.0, 230.0, -9.9);
+    glVertex3f(100.0, 215.0, -9.9);
+    glVertex3f(100.0, 215.0, 0.0);
+    glVertex3f(100.0, 230.0, 6.0);
     glEnd();
 
     glBegin(GL_QUADS);//belakang
@@ -1185,6 +1344,8 @@ void tampil(void){
     lambangSegitiga();
     papan_nama();
     uksw();
+    jendelakutil();
+    sekatkaca();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
