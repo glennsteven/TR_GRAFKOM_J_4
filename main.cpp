@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <GL/glut.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void init(void);
 void tampil(void);
@@ -1540,12 +1541,110 @@ void kelas(void){
     glVertex3f(10.0,125.0,-14.0);
     glEnd();
 
+    //TV
+    glBegin(GL_POLYGON);//depan
+    glColor3ub(0, 0, 0);
+    glVertex3f(-30.0,70.0,-108.0);
+    glVertex3f(30.0,70.0,-108.0);
+    glVertex3f(30.0,113.0,-100.0);
+    glVertex3f(-30.0,113.0,-100.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//belakang
+    glColor3ub(0, 0, 0);
+    glVertex3f(-30.0,70.0,-110.0);
+    glVertex3f(30.0,70.0,-110.0);
+    glVertex3f(30.0,113.0,-102.0);
+    glVertex3f(-30.0,113.0,-102.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//atas
+    glColor3ub(128, 128, 128);
+    glVertex3f(-30.0,113.0,-100.0);
+    glVertex3f(30.0,113.0,-100.0);
+    glVertex3f(30.0,113.0,-102.0);
+    glVertex3f(-30.0,113.0,-102.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//bawah
+    glColor3ub(128, 128, 128);
+    glVertex3f(-30.0,70.0,-108.0);
+    glVertex3f(30.0,70.0,-108.0);
+    glVertex3f(30.0,70.0,-110.0);
+    glVertex3f(-30.0,70.0,-110.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//kiri
+    glColor3ub(128, 128, 128);
+    glVertex3f(-30.0,70.0,-110.0);
+    glVertex3f(-30.0,70.0,-108.0);
+    glVertex3f(-30.0,113.0,-102.0);
+    glVertex3f(-30.0,113.0,-100.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//kanan
+    glColor3ub(128, 128, 128);
+    glVertex3f(30.0,70.0,-110.0);
+    glVertex3f(30.0,70.0,-108.0);
+    glVertex3f(30.0,113.0,-102.0);
+    glVertex3f(30.0,113.0,-100.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//layar putih
+    glColor3ub(217, 217, 217);
+    glVertex3f(-28.0,73.0,-106.9);
+    glVertex3f(28.0,73.0,-106.9);
+    glVertex3f(28.0,110.0,-99.9);
+    glVertex3f(-28.0,110.0,-99.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);//antena kanan
+    glColor3ub(0, 0, 0);
+    glVertex3f(16.0,113.1,-102.0);
+    glVertex3f(14.0,113.1,-102.0);
+    glVertex3f(16.0,117.0,-100.0);
+    glVertex3f(18.0,117.0,-100.0);
+    glEnd();
+
+    glBegin(GL_POLYGON);//antena kiri
+    glColor3ub(0, 0, 0);
+    glVertex3f(13.0,113.1,-102.0);
+    glVertex3f(15.0,113.1,-102.0);
+    glVertex3f(13,117.0,-100.0);
+    glVertex3f(11.0,117.0,-100.0);
+    glEnd();
+
 }
 void tampil(void){
-
     glPushMatrix();
     coba();
     glScalef(1.5, 1.5, 1.0);
+
+    //Garis AB
+    float ax=-300;
+    float ay=300;
+    float bx=-280;
+    float by=301;
+
+    //Garis CD
+    float cx=-290;
+    float cy=292;
+    float dx=-291;
+    float dy=308;
+
+    //Garis EF
+    float ex=-297;
+    float ey=305;
+    float fx=-282;
+    float fy=295;
+
+    //Garis GH
+    float gx=-297;
+    float gy=295;
+    float hx=-285;
+    float hy=305;
+
+    float m1,c1,m2,c2,m3,c3,m4,c4,px,py;//p = variabel untuk mencari titik potong
 
     //bangunan besar tengah
     glBegin(GL_QUADS);//depan
@@ -1566,12 +1665,12 @@ void tampil(void){
 
     glBegin(GL_POLYGON);//bawah
     glColor3ub(128, 128, 128);
-    glVertex3f(-90.0,50.0,-60.0);
-    glVertex3f(-120.0,50.0,-10.0);
-    glVertex3f(120.0,50.0,-10.0);
-    glVertex3f(90.0,50.0,-60.0);
-    glVertex3f(120.0,50.0,-110.0);
-    glVertex3f(-120.0,50.0,-110.0);
+    glVertex3f(-90.0,0.1,-60.0);
+    glVertex3f(-120.0,0.1,-10.0);
+    glVertex3f(120.0,0.1,-10.0);
+    glVertex3f(90.0,0.1,-60.0);
+    glVertex3f(120.0,0.1,-110.0);
+    glVertex3f(-120.0,0.1,-110.0);
     glEnd();
 
     glBegin(GL_POLYGON);//atas
@@ -1586,32 +1685,32 @@ void tampil(void){
 
     glBegin(GL_QUADS);//kiri depan
     glColor3ub(255, 239, 204);
-    glVertex3f(-120.0,50.0,-10.0);
-    glVertex3f(-90.0,50.0,-60.0);
+    glVertex3f(-120.0,0.1,-10.0);
+    glVertex3f(-90.0,0.1,-60.0);
     glVertex3f(-90.0,280.0,-60.0);
     glVertex3f(-120.0,280.0,-10.0);
     glEnd();
 
     glBegin(GL_QUADS);//kiri belakang
     glColor3ub(255, 239, 204);
-    glVertex3f(-120.0,50.0,-110.0);
-    glVertex3f(-90.0,50.0,-60.0);
+    glVertex3f(-120.0,0.1,-110.0);
+    glVertex3f(-90.0,0.1,-60.0);
     glVertex3f(-90.0,280.0,-60.0);
     glVertex3f(-120.0,280.0,-110.0);
     glEnd();
 
     glBegin(GL_QUADS);//kanan depan
     glColor3ub(255, 239, 204);
-    glVertex3f(120.0,50.0,-10.0);
-    glVertex3f(90.0,50.0,-60.0);
+    glVertex3f(120.0,0.1,-10.0);
+    glVertex3f(90.0,0.1,-60.0);
     glVertex3f(90.0,280.0,-60.0);
     glVertex3f(120.0,280.0,-10.0);
     glEnd();
 
     glBegin(GL_QUADS);//kanan belakang
     glColor3ub(255, 239, 204);
-    glVertex3f(120.0,50.0,-110.0);
-    glVertex3f(90.0,50.0,-60.0);
+    glVertex3f(120.0,0.1,-110.0);
+    glVertex3f(90.0,0.1,-60.0);
     glVertex3f(90.0,280.0,-60.0);
     glVertex3f(120.0,280.0,-110.0);
     glEnd();
@@ -1852,6 +1951,47 @@ void tampil(void){
     glVertex3f(190.0,330.0,-92.0);
     glEnd();
 
+    glBegin(GL_LINES);
+        glVertex2f(ax,ay);
+        glVertex2f(bx,by);
+
+        glVertex2f(cx,cy);
+        glVertex2f(dx,dy);
+
+        glVertex2f(ex,ey);
+        glVertex2f(fx,fy);
+
+        glVertex2f(gx,gy);
+        glVertex2f(hx,hy);
+    glEnd();
+
+    //Menentukan Persamaan Garis
+        //AB
+        m1 = (by-ay)/(bx-ax);
+        c1 = ay - (m1*ax);
+
+        //CD
+        m2 = (dy-cy)/(dx-cx);
+        c2 = cy - (m2*cx);
+
+        //EF
+        m3 = (fy-ey)/(fx-ex);
+        c3 = ey - (m3*ex);
+
+        //GH
+        m4 = (hy-gy)/(hx-gx);
+        c4 = gy - (m4*gx);
+
+    //Menentukan Titik Potong
+        px = (c2-c1)/(m1-m2);
+        py = (m1*px) + c1;
+            glPointSize(8);
+
+        glBegin(GL_POINTS);
+        glColor3f(0,1,0);
+            glVertex2f(px,py);
+        glEnd();
+
     subgedung_kanan();
     subgedung_kiri();
     pintu_atap();
@@ -1870,7 +2010,6 @@ void tampil(void){
     glPopMatrix();
     glutSwapBuffers();
 }
-
 void mouse(int button, int state, int x, int y){
     if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
         mouseDown = true;
