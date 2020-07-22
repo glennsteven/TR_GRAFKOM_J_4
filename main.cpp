@@ -1426,6 +1426,98 @@ void kelas(void){
     glVertex3f(-120.0,120.0,-110.0);
     glEnd();
 
+    //kursi belakang
+    glBegin(GL_QUADS);
+        glColor3ub(90,132,220);
+        glVertex3f(-30.0,120.0,-100.0);
+        glVertex3f(-30.0,125.0,-100.0);
+        glVertex3f(-30.0,125.0,-90.0);
+        glVertex3f(-30.0,120.0,-90.0);
+
+        glVertex3f(30.0,120.0,-100.0);
+        glVertex3f(30.0,125.0,-100.0);
+        glVertex3f(30.0,125.0,-90.0);
+        glVertex3f(30.0,120.0,-90.0);
+
+        glVertex3f(30.0,125.0,-100.0);
+        glVertex3f(-30.0,125.0,-100.0);
+        glVertex3f(-30.0,125.0,-90.0);
+        glVertex3f(30.0,125.0,-90.0);
+
+        glVertex3f(30.0,125.0,-100.0);
+        glVertex3f(-30.0,125.0,-100.0);
+        glVertex3f(-30.0,132.0,-102.0);
+        glVertex3f(30.0,132.0,-102.0);
+
+        //meja belakang
+        glColor3ub(200,50,50);
+        glVertex3f(-35.0,120.0,-85.0);
+        glVertex3f(-35.0,131.0,-85.0);
+        glVertex3f(-35.0,131.0,-75.0);
+        glVertex3f(-35.0,120.0,-75.0);
+
+        glVertex3f(35.0,120.0,-85.0);
+        glVertex3f(35.0,131.0,-85.0);
+        glVertex3f(35.0,131.0,-75.0);
+        glVertex3f(35.0,120.0,-75.0);
+
+        glVertex3f(35.0,131.0,-85.0);
+        glVertex3f(-35.0,131.0,-85.0);
+        glVertex3f(-35.0,131.0,-75.0);
+        glVertex3f(35.0,131.0,-75.0);
+
+        glColor3f(0.0,0.0,0.0);
+        glVertex3f(-35.0,120.0,-75.0);
+        glVertex3f(-35.0,131.0,-75.0);
+        glVertex3f(35.0,131.0,-75.0);
+        glVertex3f(35.0,120.0,-75.0);
+
+        //kursi depan
+        glColor3ub(90,132,220);
+        glVertex3f(-30.0,120.0,-70.0);
+        glVertex3f(-30.0,125.0,-70.0);
+        glVertex3f(-30.0,125.0,-60.0);
+        glVertex3f(-30.0,120.0,-60.0);
+
+        glVertex3f(30.0,120.0,-70.0);
+        glVertex3f(30.0,125.0,-70.0);
+        glVertex3f(30.0,125.0,-60.0);
+        glVertex3f(30.0,120.0,-60.0);
+
+        glVertex3f(30.0,125.0,-70.0);
+        glVertex3f(-30.0,125.0,-70.0);
+        glVertex3f(-30.0,125.0,-60.0);
+        glVertex3f(30.0,125.0,-60.0);
+
+        glVertex3f(30.0,125.0,-70.0);
+        glVertex3f(-30.0,125.0,-70.0);
+        glVertex3f(-30.0,132.0,-72.0);
+        glVertex3f(30.0,132.0,-72.0);
+
+        //meja depan
+        glColor3ub(200,50,50);
+        glVertex3f(-35.0,120.0,-55.0);
+        glVertex3f(-35.0,131.0,-55.0);
+        glVertex3f(-35.0,131.0,-45.0);
+        glVertex3f(-35.0,120.0,-45.0);
+
+        glVertex3f(35.0,120.0,-55.0);
+        glVertex3f(35.0,131.0,-55.0);
+        glVertex3f(35.0,131.0,-45.0);
+        glVertex3f(35.0,120.0,-45.0);
+
+        glVertex3f(35.0,131.0,-55.0);
+        glVertex3f(-35.0,131.0,-55.0);
+        glVertex3f(-35.0,131.0,-45.0);
+        glVertex3f(35.0,131.0,-45.0);
+
+        glColor3f(0.0,0.0,0.0);
+        glVertex3f(-35.0,120.0,-45.0);
+        glVertex3f(-35.0,131.0,-45.0);
+        glVertex3f(35.0,131.0,-45.0);
+        glVertex3f(35.0,120.0,-45.0);
+    glEnd();
+
     //PAPAN TULIS
     glBegin(GL_POLYGON);//depan
     glColor3ub(255, 0, 0);
