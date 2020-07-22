@@ -1707,6 +1707,255 @@ void kelas(void){
     glEnd();
 
 }
+
+void lobi(void){
+    ///kursi kanan
+    glBegin(GL_QUADS);
+    glColor3ub(100,100,255);
+        glVertex3f(50.0,6.0,-80.0);
+        glVertex3f(60.0,6.0,-80.0);
+        glVertex3f(60.0,6.0,-40.0);
+        glVertex3f(50.0,6.0,-40.0);
+
+        glVertex3f(60.0,6.0,-80.0);
+        glVertex3f(63.0,17.0,-80.0);
+        glVertex3f(63.0,17.0,-40.0);
+        glVertex3f(60.0,6.0,-40.0);
+
+        glVertex3f(63.0,17.0,-80.0);
+        glVertex3f(65.0,17.0,-80.0);
+        glVertex3f(65.0,17.0,-40.0);
+        glVertex3f(63.0,17.0,-40.0);
+
+        glVertex3f(65.0,0.0,-80.0);
+        glVertex3f(65.0,17.0,-80.0);
+        glVertex3f(65.0,17.0,-40.0);
+        glVertex3f(65.0,0.0,-40.0);
+
+        glVertex3f(50.0,0.0,-80.0);
+        glVertex3f(50.0,6.0,-80.0);
+        glVertex3f(50.0,6.0,-40.0);
+        glVertex3f(50.0,0.0,-40.0);
+        //tutupan
+        glColor3ub(150,150,150);
+        glVertex3f(50.0,6.0,-80.0);
+        glVertex3f(65.0,6.0,-80.0);
+        glVertex3f(65.0,0.0,-80.0);
+        glVertex3f(50.0,0.0,-80.0);
+
+        glVertex3f(60.0,6.0,-80.0);
+        glVertex3f(63.0,17.0,-80.0);
+        glVertex3f(65.0,17.0,-80.0);
+        glVertex3f(65.0,0.0,-80.0);
+
+        glVertex3f(50.0,6.0,-40.0);
+        glVertex3f(65.0,6.0,-40.0);
+        glVertex3f(65.0,0.0,-40.0);
+        glVertex3f(50.0,0.0,-40.0);
+
+        glVertex3f(60.0,6.0,-40.0);
+        glVertex3f(63.0,17.0,-40.0);
+        glVertex3f(65.0,17.0,-40.0);
+        glVertex3f(65.0,0.0,-40.0);
+
+        //tangan
+        glColor3ub(220,220,220);
+        glVertex3f(50.0,0.0,-38.0);
+        glVertex3f(50.0,8.0,-38.0);
+        glVertex3f(50.0,8.0,-40.0);
+        glVertex3f(50.0,0.0,-40.0);
+
+        glVertex3f(50.0,8.0,-40.0);
+        glVertex3f(65.0,8.0,-40.0);
+        glVertex3f(65.0,8.0,-38.0);
+        glVertex3f(50.0,8.0,-38.0);
+
+        glVertex3f(65.0,0.0,-38.0);
+        glVertex3f(65.0,0.0,-40.0);
+        glVertex3f(65.0,8.0,-40.0);
+        glVertex3f(65.0,8.0,-38.0);
+        ///
+        glVertex3f(50.0,0.0,-82.0);
+        glVertex3f(50.0,8.0,-82.0);
+        glVertex3f(50.0,8.0,-80.0);
+        glVertex3f(50.0,0.0,-80.0);
+
+        glVertex3f(50.0,8.0,-80.0);
+        glVertex3f(65.0,8.0,-80.0);
+        glVertex3f(65.0,8.0,-82.0);
+        glVertex3f(50.0,8.0,-82.0);
+
+        glVertex3f(65.0,0.0,-82.0);
+        glVertex3f(65.0,0.0,-80.0);
+        glVertex3f(65.0,8.0,-80.0);
+        glVertex3f(65.0,8.0,-82.0);
+    glEnd();
+
+    ///meja kanan
+    glBegin(GL_QUADS);
+        glColor3ub(50,50,190);
+        glVertex3f(38.0,8.0,-80.0);
+        glVertex3f(38.0,8.0,-40.0);
+        glVertex3f(25.0,8.0,-40.0);
+        glVertex3f(25.0,8.0,-80.0);
+
+        glColor3ub(220,220,220);
+        glVertex3f(25.0,0.0,-38.0);
+        glVertex3f(25.0,8.0,-38.0);
+        glVertex3f(25.0,8.0,-40.0);
+        glVertex3f(25.0,0.0,-40.0);
+
+        glVertex3f(25.0,8.0,-40.0);
+        glVertex3f(38.0,8.0,-40.0);
+        glVertex3f(38.0,8.0,-38.0);
+        glVertex3f(25.0,8.0,-38.0);
+
+        glVertex3f(38.0,0.0,-38.0);
+        glVertex3f(38.0,0.0,-40.0);
+        glVertex3f(38.0,8.0,-40.0);
+        glVertex3f(38.0,8.0,-38.0);
+        ///
+        glVertex3f(25.0,0.0,-82.0);
+        glVertex3f(25.0,8.0,-82.0);
+        glVertex3f(25.0,8.0,-80.0);
+        glVertex3f(25.0,0.0,-80.0);
+
+        glVertex3f(25.0,8.0,-80.0);
+        glVertex3f(38.0,8.0,-80.0);
+        glVertex3f(38.0,8.0,-82.0);
+        glVertex3f(25.0,8.0,-82.0);
+
+        glVertex3f(38.0,0.0,-82.0);
+        glVertex3f(38.0,0.0,-80.0);
+        glVertex3f(38.0,8.0,-80.0);
+        glVertex3f(38.0,8.0,-82.0);
+    glEnd();
+
+
+    ///kursi kiri
+    glBegin(GL_QUADS);
+    glColor3ub(100,100,255);
+        glVertex3f(-50.0,6.0,-80.0);
+        glVertex3f(-60.0,6.0,-80.0);
+        glVertex3f(-60.0,6.0,-40.0);
+        glVertex3f(-50.0,6.0,-40.0);
+
+        glVertex3f(-60.0,6.0,-80.0);
+        glVertex3f(-63.0,17.0,-80.0);
+        glVertex3f(-63.0,17.0,-40.0);
+        glVertex3f(-60.0,6.0,-40.0);
+
+        glVertex3f(-63.0,17.0,-80.0);
+        glVertex3f(-65.0,17.0,-80.0);
+        glVertex3f(-65.0,17.0,-40.0);
+        glVertex3f(-63.0,17.0,-40.0);
+
+        glVertex3f(-65.0,0.0,-80.0);
+        glVertex3f(-65.0,17.0,-80.0);
+        glVertex3f(-65.0,17.0,-40.0);
+        glVertex3f(-65.0,0.0,-40.0);
+
+        glVertex3f(-50.0,0.0,-80.0);
+        glVertex3f(-50.0,6.0,-80.0);
+        glVertex3f(-50.0,6.0,-40.0);
+        glVertex3f(-50.0,0.0,-40.0);
+        //tutupan
+        glColor3ub(150,150,150);
+        glVertex3f(-50.0,6.0,-80.0);
+        glVertex3f(-65.0,6.0,-80.0);
+        glVertex3f(-65.0,0.0,-80.0);
+        glVertex3f(-50.0,0.0,-80.0);
+
+        glVertex3f(-60.0,6.0,-80.0);
+        glVertex3f(-63.0,17.0,-80.0);
+        glVertex3f(-65.0,17.0,-80.0);
+        glVertex3f(-65.0,0.0,-80.0);
+
+        glVertex3f(-50.0,6.0,-40.0);
+        glVertex3f(-65.0,6.0,-40.0);
+        glVertex3f(-65.0,0.0,-40.0);
+        glVertex3f(-50.0,0.0,-40.0);
+
+        glVertex3f(-60.0,6.0,-40.0);
+        glVertex3f(-63.0,17.0,-40.0);
+        glVertex3f(-65.0,17.0,-40.0);
+        glVertex3f(-65.0,0.0,-40.0);
+
+        //tangan
+        glColor3ub(220,220,220);
+        glVertex3f(-50.0,0.0,-38.0);
+        glVertex3f(-50.0,8.0,-38.0);
+        glVertex3f(-50.0,8.0,-40.0);
+        glVertex3f(-50.0,0.0,-40.0);
+
+        glVertex3f(-50.0,8.0,-40.0);
+        glVertex3f(-65.0,8.0,-40.0);
+        glVertex3f(-65.0,8.0,-38.0);
+        glVertex3f(-50.0,8.0,-38.0);
+
+        glVertex3f(-65.0,0.0,-38.0);
+        glVertex3f(-65.0,0.0,-40.0);
+        glVertex3f(-65.0,8.0,-40.0);
+        glVertex3f(-65.0,8.0,-38.0);
+        ///
+        glVertex3f(-50.0,0.0,-82.0);
+        glVertex3f(-50.0,8.0,-82.0);
+        glVertex3f(-50.0,8.0,-80.0);
+        glVertex3f(-50.0,0.0,-80.0);
+
+        glVertex3f(-50.0,8.0,-80.0);
+        glVertex3f(-65.0,8.0,-80.0);
+        glVertex3f(-65.0,8.0,-82.0);
+        glVertex3f(-50.0,8.0,-82.0);
+
+        glVertex3f(-65.0,0.0,-82.0);
+        glVertex3f(-65.0,0.0,-80.0);
+        glVertex3f(-65.0,8.0,-80.0);
+        glVertex3f(-65.0,8.0,-82.0);
+    glEnd();
+
+    ///meja kiri
+    glBegin(GL_QUADS);
+        glColor3ub(50,50,190);
+        glVertex3f(-38.0,8.0,-80.0);
+        glVertex3f(-38.0,8.0,-40.0);
+        glVertex3f(-25.0,8.0,-40.0);
+        glVertex3f(-25.0,8.0,-80.0);
+
+        glColor3ub(220,220,220);
+        glVertex3f(-25.0,0.0,-38.0);
+        glVertex3f(-25.0,8.0,-38.0);
+        glVertex3f(-25.0,8.0,-40.0);
+        glVertex3f(-25.0,0.0,-40.0);
+
+        glVertex3f(-25.0,8.0,-40.0);
+        glVertex3f(-38.0,8.0,-40.0);
+        glVertex3f(-38.0,8.0,-38.0);
+        glVertex3f(-25.0,8.0,-38.0);
+
+        glVertex3f(-38.0,0.0,-38.0);
+        glVertex3f(-38.0,0.0,-40.0);
+        glVertex3f(-38.0,8.0,-40.0);
+        glVertex3f(-38.0,8.0,-38.0);
+        ///
+        glVertex3f(-25.0,0.0,-82.0);
+        glVertex3f(-25.0,8.0,-82.0);
+        glVertex3f(-25.0,8.0,-80.0);
+        glVertex3f(-25.0,0.0,-80.0);
+
+        glVertex3f(-25.0,8.0,-80.0);
+        glVertex3f(-38.0,8.0,-80.0);
+        glVertex3f(-38.0,8.0,-82.0);
+        glVertex3f(-25.0,8.0,-82.0);
+
+        glVertex3f(-38.0,0.0,-82.0);
+        glVertex3f(-38.0,0.0,-80.0);
+        glVertex3f(-38.0,8.0,-80.0);
+        glVertex3f(-38.0,8.0,-82.0);
+    glEnd();
+
+}
+
 void tampil(void){
     glPushMatrix();
     coba();
@@ -2098,6 +2347,7 @@ void tampil(void){
     jendelakutil();
     sekatkaca();
     kelas();
+    lobi();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
