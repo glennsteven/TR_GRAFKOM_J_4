@@ -9,6 +9,11 @@ void keyboard(unsigned char, int, int);
 void ukuran (int, int);
 void mouse (int button, int state, int x, int y);
 void mouseMotion(int x, int y);
+void timer(int value);
+
+float gerak = 0.0f, gerak1 = 0.0f;
+float gerakkali = 0.5f, gerakkali1 = 0.5f;
+bool kanan = true, kiri = true;
 
 double pin=0, tag=0;
 float xrot = 0.0;
@@ -30,20 +35,45 @@ int main(int argc, char **argv){
     glutMotionFunc(mouseMotion);
     glutKeyboardFunc(keyboard);
     glutReshapeFunc(ukuran);
+    glutTimerFunc(0, timer, 0);
     glutMouseFunc(mouse);
     glutMainLoop();
     return 0;
 }
 void init(void){
     glClearColor(0.0,0.0,0.0,0.0);
-    glDepthFunc(GL_LEQUAL);
-   glShadeModel(GL_SMOOTH);
-   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
     is_depth=1;
     glMatrixMode(GL_MODELVIEW);
     glPointSize(9.0);
     glLineWidth(6.0f);
+}
+void timer(int value){
+    glutPostRedisplay();
+    glutTimerFunc(1000/30, timer, 0);
+    if(gerak < 20.0 && kanan)
+        gerak += gerakkali;
+    else
+        kanan = false;
+
+    if(gerak > -10.5f && !kanan)
+        gerak -= gerakkali;
+    else
+        kanan = true;
+
+
+    if(gerak1 > -20.0 && kiri)
+        gerak1 -= gerakkali1;
+    else
+        kiri = false;
+
+    if(gerak1 < 10.5f && !kiri)
+        gerak1 += gerakkali1;
+    else
+        kiri = true;
 }
 void pintu_atap(){
         //pintu kanan
@@ -2078,12 +2108,7 @@ void gerbang(){
     glVertex3f(-65.0, 22.0, 420.1);
     glEnd();
 }
-void coba(){
-	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-    gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-	glRotatef(xrot,1,0,0);
-	glRotatef(yrot,0,1,0);
-}
+
 void jendelakutil(){
     int y = 30;
     float a = 0.1;
@@ -2892,6 +2917,30 @@ void kaca_gedungTinggi(){
         glEnd();
     }
 }
+void pintumasukUniv(){
+    glBegin(GL_POLYGON);
+    glColor3ub(0,255,255);
+    glVertex3f(-55.0 + gerak, 0.0, -9.9);
+    glVertex3f(-20.0 + gerak, 0.0, -9.9);
+    glVertex3f(-20.0 + gerak, 50.0, -9.9);
+    glVertex3f(-55 + gerak, 50.0, -9.9);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3ub(0,255,255);
+    glVertex3f(55.0 + gerak1, 0.0, -9.9);
+    glVertex3f(20.0 + gerak1, 0.0, -9.9);
+    glVertex3f(20.0 + gerak1, 50.0, -9.9);
+    glVertex3f(55 + gerak1, 50.0, -9.9);
+    glEnd();
+}
+
+void coba(){
+	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+    gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	glRotatef(xrot,1,0,0);
+	glRotatef(yrot,0,1,0);
+}
 void tampil(void){
     glPushMatrix();
     coba();
@@ -3328,6 +3377,7 @@ void tampil(void){
     kelas();
     lobi();
     kaca_gedungTinggi();
+    pintumasukUniv();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
