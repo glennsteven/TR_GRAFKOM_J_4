@@ -45,7 +45,6 @@ void waktu(int i){
 	glutTimerFunc(700, waktu, 10);//mengatur waktu
 	glutPostRedisplay();
 }
-
 int main(int argc, char **argv){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE);
@@ -65,9 +64,9 @@ int main(int argc, char **argv){
 }
 void init(void){
     glClearColor(0.0,0.0,0.0,0.0);
-//    glEnable(GL_LIGHTING);
-//    glEnable(GL_COLOR_MATERIAL);
-//    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
     is_depth=1;
     glMatrixMode(GL_MODELVIEW);
@@ -755,13 +754,6 @@ void jendelaDANpintu_depan(){
         glColor3ub(255, 255, 255);
         glVertex3f(90.0,120.0,-10.0);
 
-    /*//PINTU BIRU BESAR TENGAH
-    glColor3ub(0,255,0);
-    glVertex3f(-35.0,0.0,-10.0);
-    glVertex3f(35.0,0.0,-10.0);
-    glVertex3f(35.0,50.0,-10.0);
-    glVertex3f(-35.0,50.0,-10.0);
-    */
     //tembok
     glColor3ub(255, 247, 230);
     glVertex3f(-120.0,200.0,-10.1);
@@ -2948,12 +2940,6 @@ void pintumasukUniv(){
     glVertex3f(55 + gerak1, 50.0, -9.9);
     glEnd();
 }
-void coba(){
-	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-    gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-	glRotatef(xrot,1,0,0);
-	glRotatef(yrot,0,1,0);
-}
 void matahari(){
     //bulat tengah
 	glPushMatrix();
@@ -3031,22 +3017,22 @@ void pilarATASgedung(){
         glColor3ub(255, 255, 153);
         if (i==0){
             glColor3ub(255, 229, 204);
-            glVertex3f(-75.0,280.0,-10.0);
+            glVertex3f(-75.0,280.0,-15.0);
             glColor3ub(217, 217, 217);
-            glVertex3f(-85.0,280.0,-10.0);
+            glVertex3f(-85.0,280.0,-15.0);
             glColor3ub(255, 229, 204);
-            glVertex3f(-85.0,300.0,-10.0);
+            glVertex3f(-85.0,300.0,-15.0);
             glColor3ub(217, 217, 217);
-            glVertex3f(-75.0,300.0,-10.0);
+            glVertex3f(-75.0,300.0,-15.0);
         }else{
             glColor3ub(255, 229, 204);
-            glVertex3f(-75.0+y-a,280.0,-10.0);
+            glVertex3f(-75.0+y-a,280.0,-15.0);
             glColor3ub(217, 217, 217);
-            glVertex3f(-85.0+y-a,280.0,-10.0);
+            glVertex3f(-85.0+y-a,280.0,-15.0);
             glColor3ub(255, 229, 204);
-            glVertex3f(-85.0+y-a,300.0,-10.0);
+            glVertex3f(-85.0+y-a,300.0,-15.0);
             glColor3ub(217, 217, 217);
-            glVertex3f(-75.0+y-a,300.0,-10.0);
+            glVertex3f(-75.0+y-a,300.0,-15.0);
             y+=26;
             a-=0.1;
         }
@@ -3054,14 +3040,60 @@ void pilarATASgedung(){
     }
     glBegin(GL_QUADS);//atasnya
     glColor3ub(255, 229, 204);
-    glVertex3f(-130.0,300.0,-10.0);
+    glVertex3f(-130.0,300.0,-15.0);
     glColor3ub(217, 217, 217);
-    glVertex3f(130.0,300.0,-10.0);
+    glVertex3f(130.0,300.0,-15.0);
     glColor3ub(255, 229, 204);
-    glVertex3f(130.0,308.0,-10.0);
+    glVertex3f(130.0,308.0,-15.0);
     glColor3ub(217, 217, 217);
-    glVertex3f(-130.0,308.0,-10.0);
+    glVertex3f(-130.0,308.0,-15.0);
     glEnd();
+}
+void pilarATASgedungBELAKANG(){
+    int y = 26;
+    float a = 0.1;
+    for (int i = 0; i<7; i++){
+        glBegin(GL_QUADS);
+        glColor3ub(255, 255, 153);
+        if (i==0){
+            glColor3ub(255, 229, 204);
+            glVertex3f(-75.0,280.0,-160.0);
+            glColor3ub(217, 217, 217);
+            glVertex3f(-85.0,280.0,-160.0);
+            glColor3ub(255, 229, 204);
+            glVertex3f(-85.0,300.0,-160.0);
+            glColor3ub(217, 217, 217);
+            glVertex3f(-75.0,300.0,-160.0);
+        }else{
+            glColor3ub(255, 229, 204);
+            glVertex3f(-75.0+y-a,280.0,-160.0);
+            glColor3ub(217, 217, 217);
+            glVertex3f(-85.0+y-a,280.0,-160.0);
+            glColor3ub(255, 229, 204);
+            glVertex3f(-85.0+y-a,300.0,-160.0);
+            glColor3ub(217, 217, 217);
+            glVertex3f(-75.0+y-a,300.0,-160.0);
+            y+=26;
+            a-=0.1;
+        }
+        glEnd();
+    }
+    glBegin(GL_QUADS);//atasnya
+    glColor3ub(255, 229, 204);
+    glVertex3f(-130.0,300.0,-160.0);
+    glColor3ub(217, 217, 217);
+    glVertex3f(130.0,300.0,-160.0);
+    glColor3ub(255, 229, 204);
+    glVertex3f(130.0,308.0,-160.0);
+    glColor3ub(217, 217, 217);
+    glVertex3f(-130.0,308.0,-160.0);
+    glEnd();
+}
+void coba(){
+	 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+    gluLookAt(0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	glRotatef(xrot,1,0,0);
+	glRotatef(yrot,0,1,0);
 }
 void tampil(void){
     glPushMatrix();
@@ -3501,6 +3533,7 @@ void tampil(void){
     pintumasukUniv();
     matahari();
     pilarATASgedung();
+    pilarATASgedungBELAKANG();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
